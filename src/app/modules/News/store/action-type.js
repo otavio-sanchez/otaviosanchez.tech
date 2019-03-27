@@ -1,0 +1,3 @@
+const GITHUB_PROJECTS = 'GITHUB_PROJECTS';
+
+export default { GITHUB_PROJECTS };

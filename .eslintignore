@@ -1,0 +1,6 @@
+/config
+/coverage
+/node_modules
+/scripts
+registerServiceWorker.js
+serviceWorker.js

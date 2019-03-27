@@ -1,0 +1,3 @@
+const SEARCH_ARTICLE = 'SEARCH_ARTICLE';
+
+export default { SEARCH_ARTICLE };
