@@ -84,7 +84,7 @@ const Menu = styled.nav`
 	border-left: 1px #ccc solid;
 	display: block;
 	height: 100vh;
-	padding: 0 20px;
+	padding: 20px 0;
 	position: fixed;
 	right:  ${props => (props.open ? '0px' : '-100%')};
 	min-width: 320px;
@@ -104,13 +104,13 @@ const Menu = styled.nav`
 
   ul li{
 	list-style: none;
-	padding: 20px 20px;
+	padding: 20px 0;
 	text-align: center;
   }
 
   .link{
 	text-decoration: none;
-	padding: 20px;
+	padding: 20px 0;
 	color: ${props => props.style.font.color};
 	transition: color 300ms ease-in-out;
   }

@@ -6,13 +6,17 @@ import Button from '../../components/Button';
 import npmIcon from '../../../assets/images/npm-logo.svg';
 import linkedinIcon from '../../../assets/images/linkedin-logo.svg';
 import githubIcon from '../../../assets/images/github-logo.svg';
+import background from '../../../assets/images/background.jpg';
 
 const BannerHeader = styled.header`
   width: 100%;
   padding: 180px 0;
   position: relative;
+  z-index: 2;
   display: block;
-  background-position: center center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${props => props.backgroundBanner});
 
@@ -89,6 +93,16 @@ const SocialNetwork = styled.ul`
 	}
 `;
 
+const Background = styled.div`
+	&{
+		position: relative;
+		display: inline-block;
+		background-color: red;
+		width: 100%;
+		background-image: url(${background});
+	}
+`;
+
 const Terminal = styled.div`
 		.hidden {
 			opacity:0;
@@ -97,9 +111,9 @@ const Terminal = styled.div`
 		&{
 			font-size:2em;
 			text-align:center;
-			height:60px;
+			padding: 20px 0 30px 0;
 			width:100%;
-			display:block;
+			display: inline-block;
 			position:relative;
 			color:white;
 			top:0;
@@ -143,6 +157,15 @@ class Banner extends Component {
 
 
 		this.terminal(textBanner, ['#f04', '#fff']);
+	}
+
+	downloadCV = () => {
+		const link = document.createElement('a');
+		link.href = process.env.REACT_APP_URL;
+		link.target = '_blank';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
 	}
 
 	terminal(words, colors = ['#fff']) {
@@ -191,67 +214,69 @@ class Banner extends Component {
 		}, 500);
 	}
 
+
 	render() {
 		const { backgroundBanner } = this.props;
 		return (
 			<React.Fragment>
 
+				<Background>
+					<BannerHeader backgroundBanner={backgroundBanner}>
+						<div className="modal" />
+						<Grid fluid className="content">
+							<Row center="xs">
 
-				<BannerHeader backgroundBanner={backgroundBanner}>
-					<div className="modal" />
-					<Grid fluid className="content">
-						<Row center="xs">
-
-							<Col xs={12}>
-								<Terminal>
-									<span id="text" ref={(ref) => { this.text = ref; }} />
-									<div className="terminal-cursor" id="cursor" ref={(ref) => { this.cursor = ref; }}>|</div>
-								</Terminal>
-							</Col>
-							<Col xs={12}>
-								<Button onClick={() => {}}>
-									{
-										'RESUMO'
-									}
-								</Button>
-
-								<div className="or">
-									<hr />
-									<span className="or__text">ou</span>
-									<hr />
-								</div>
-
-								<nav>
-									<SocialNetwork>
+								<Col xs={12}>
+									<Terminal>
+										<span id="text" ref={(ref) => { this.text = ref; }} />
+										<div className="terminal-cursor" id="cursor" ref={(ref) => { this.cursor = ref; }}>|</div>
+									</Terminal>
+								</Col>
+								<Col xs={12}>
+									<Button onClick={this.downloadCV}>
 										{
-											socialNetworks.map(
-												socialNetwork => (
-													<li key={socialNetwork.name}>
-														<a
-															href={socialNetwork.link}
-															title={socialNetwork.name}
-															rel="noopener noreferrer"
-															target="_blank"
-														>
-															<img
-																src={socialNetwork.icon}
-																title={socialNetwork.name}
-																alt={socialNetwork.name}
-															/>
-														</a>
-
-													</li>
-												),
-											)
+											'RESUMO'
 										}
-									</SocialNetwork>
-								</nav>
-							</Col>
-						</Row>
-					</Grid>
+									</Button>
+
+									<div className="or">
+										<hr />
+										<span className="or__text">ou</span>
+										<hr />
+									</div>
+
+									<nav>
+										<SocialNetwork>
+											{
+												socialNetworks.map(
+													socialNetwork => (
+														<li key={socialNetwork.name}>
+															<a
+																href={socialNetwork.link}
+																title={socialNetwork.name}
+																rel="noopener noreferrer"
+																target="_blank"
+															>
+																<img
+																	src={socialNetwork.icon}
+																	title={socialNetwork.name}
+																	alt={socialNetwork.name}
+																/>
+															</a>
+
+														</li>
+													),
+												)
+											}
+										</SocialNetwork>
+									</nav>
+								</Col>
+							</Row>
+						</Grid>
 
 
-				</BannerHeader>
+					</BannerHeader>
+				</Background>
 			</React.Fragment>
 		);
 	}

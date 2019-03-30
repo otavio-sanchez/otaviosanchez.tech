@@ -83,6 +83,13 @@ class Contact extends Component {
 									<span>
 										{'Email: '}
 									</span>
+									<a href="mailto:contato@otaviosanchez.tech" title="email">
+										{'contato@otaviosanchez.tech'}
+									</a>
+									<br />
+									<span>
+										{'Email: '}
+									</span>
 									<a href="mailto:sanchezotavio@gmail.com" title="email">
 										{'sanchezotavio@gmail.com'}
 									</a>

@@ -6,11 +6,18 @@ const ListComponent = styled.ul`
 	list-style: none;
 	padding: 0;
 
+	li{
+		width: 48%;
+		padding-right: 2%;
+		display: inline-block;
+	}
+
 	.link{
 		text-decoration: none;
 		text-decoration: underline;
 		transition: color 300ms ease-in-out;
-		color: ${props => props.styled.main}
+		color: ${props => props.styled.main};
+		font-size: 18px;
 	}
 
 	.link:hover{
@@ -35,9 +42,6 @@ const List = ({
 				? data.map(item => (
 					<li key={item[header]}>
 						<Item>
-							{
-								console.log(theme)
-							}
 							<a
 								href={item[url]}
 								title={item[header]}
@@ -51,8 +55,6 @@ const List = ({
 								{' - '}
 								{item[type]}
 							</span>
-
-
 							<div>
 								{'Criado em '}
 								{' '}

@@ -10,7 +10,8 @@ require('dotenv').load();
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/api/projects', async (req, res) => {
-	const { data } = await axios.get(process.env.API);
+	const API = 'https://pn64fjtid1.execute-api.us-east-2.amazonaws.com/default/send-modules';
+	const { data } = await axios.get(API);
 
 
 	res.json(JSON.parse(data.body));
@@ -20,6 +21,6 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(9000, () => {
-	console.log('Server running at port 9000');
+app.listen(80, () => {
+	console.log('Server running at port 80');
 });

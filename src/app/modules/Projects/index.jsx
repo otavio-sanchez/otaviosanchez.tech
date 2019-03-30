@@ -8,7 +8,7 @@ import Loading from '../../components/Loading';
 import actions from './store/actions';
 import api from '../../../helpers/api';
 
-const NewsModule = styled.section`
+const ProjectsModule = styled.section`
 	width: 100%;
 	font-size: 14px;
 	font-weight: 400;
@@ -21,13 +21,13 @@ const NewsModule = styled.section`
 `;
 
 
-const NewsContent = styled.section`
+const ProjectsContent = styled.section`
 	max-width: 935px;
 	margin: auto;
 `;
 
 
-class News extends Component {
+class Projects extends Component {
 	state = {
 		error: false,
 	}
@@ -60,8 +60,8 @@ class News extends Component {
 		}
 
 		return (
-			<NewsModule>
-				<NewsContent>
+			<ProjectsModule>
+				<ProjectsContent>
 					<Grid fluid>
 						<Row>
 							<Col xs={12}>
@@ -79,8 +79,8 @@ class News extends Component {
 							</Col>
 						</Row>
 					</Grid>
-				</NewsContent>
-			</NewsModule>
+				</ProjectsContent>
+			</ProjectsModule>
 		);
 	}
 }
@@ -89,9 +89,9 @@ const mapStateToProps = state => ({
 	projects: state.projects,
 });
 
-News.propTypes = {
+Projects.propTypes = {
 	dispatch: propTypes.func.isRequired,
 };
 
 
-export default connect(mapStateToProps)(News);
+export default connect(mapStateToProps)(Projects);

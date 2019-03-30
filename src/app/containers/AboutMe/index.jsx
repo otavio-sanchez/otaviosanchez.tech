@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
-
+import Skills from '../Skills';
 
 const AboutMeModule = styled.section`
 	padding: 40px 0;
@@ -59,7 +59,7 @@ class AboutMe extends Component {
 	render() {
 		const { error } = this.state;
 		const {
-			text, title, subTitle, children,
+			title, subTitle, children, skills,
 		} = this.props;
 
 		if (error) {
@@ -68,38 +68,35 @@ class AboutMe extends Component {
 
 		return (
 			<AboutMeModule>
-				<Grid fluid>
-					<Row center="xs">
-						<Col xs={12}>
 
-							<Content>
-								<Grid fluid>
-									<Row center="xs">
-										<Col md={6} sm={12}>
+				<Content>
+					<Grid fluid>
+						<Row center="xs">
+							<Col md={6} sm={12}>
 
-											<Title>
-												{title}
-											</Title>
+								<Title>
+									{title}
+								</Title>
 
-											<SubTitle>
-												{subTitle}
-											</SubTitle>
+								<SubTitle>
+									{subTitle}
+								</SubTitle>
 
-											<hr />
+								<hr />
 
-											<AboutMeTextContainer>
-												{text}
-											</AboutMeTextContainer>
-										</Col>
-										<Col md={6} sm={12}>
-											{ children }
-										</Col>
-									</Row>
-								</Grid>
-							</Content>
-						</Col>
-					</Row>
-				</Grid>
+								<AboutMeTextContainer>
+									{ children }
+								</AboutMeTextContainer>
+							</Col>
+							<Col md={6} sm={12}>
+
+								<Skills list={skills} />
+
+							</Col>
+						</Row>
+					</Grid>
+				</Content>
+
 			</AboutMeModule>
 		);
 	}

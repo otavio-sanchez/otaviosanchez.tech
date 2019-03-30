@@ -13,9 +13,9 @@ const SkillsList = styled.ul`
 		position: relative;
 		list-style: none;
 		text-align: left;
-		padding: 2%;
+		padding: 1.8%;
 		display: block;
-		margin-bottom: 2.5%;
+		margin-bottom: 2%;
 
 		.skill{
 			position: relative;
@@ -56,7 +56,7 @@ const Skills = ({ list }) => (
 	<React.Fragment>
 
 		<Title>
-			{'Meus Skills'}
+			{'Principais Skills'}
 		</Title>
 
 		<SkillsList>
