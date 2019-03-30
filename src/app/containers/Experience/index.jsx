@@ -59,10 +59,15 @@ const Experience = ({ list }) => (
 			<Grid>
 				<Row>
 					<Col xs={12}>
-						<Title>
-							{'Experiência'}
-						</Title>
+
 						<Grid>
+							<Row>
+								<Col xs={12}>
+									<Title>
+										{'Experiência'}
+									</Title>
+								</Col>
+							</Row>
 							{
 								list.map(item => (
 									<Row>

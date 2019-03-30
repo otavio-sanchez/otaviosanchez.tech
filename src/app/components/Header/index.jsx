@@ -59,6 +59,22 @@ const HeaderMenu = styled.header`
 		
   }
 
+  @media (max-width: 620px){
+	.logo{
+		font-size: 19px;
+
+
+		&__sub{
+				font-size: 10px;
+		}
+  }
+
+  .logoImage{
+	font-size: 30px;
+	line-height: 37px;
+  }
+  }
+
   
   > div{
 	  height: 100%;

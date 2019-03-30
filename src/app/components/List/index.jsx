@@ -10,6 +10,7 @@ const ListComponent = styled.ul`
 		width: 48%;
 		padding-right: 2%;
 		display: inline-block;
+		vertical-align: top;
 	}
 
 	.link{
