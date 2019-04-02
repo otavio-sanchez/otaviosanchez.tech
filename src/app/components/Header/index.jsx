@@ -22,6 +22,15 @@ const HeaderMenu = styled.header`
   z-index: 1001;
   max-width: 1024px;
   margin: auto;
+  
+  a{
+	  text-decoration: none;
+  }
+
+  .menu-active{
+	transition: all .6s ease-in-out;
+	color:  ${props => props.style.font.color} !important;
+  }
 
   .logoImage{
 	font-size: 38px;
@@ -91,6 +100,7 @@ const Icon = styled.img`
   padding: 10px;
   cursor: pointer;
   float: right;
+  transition: all .6s ease-in-out;
 `;
 
 const Menu = styled.nav`
@@ -199,25 +209,30 @@ class Header extends Component {
 											<Grid fluid>
 												<Row start="xs">
 													<Col>
-														<div className="logoImage">
-															<span className="sides">
-																{'{'}
-															</span>
-															<span className="middle">
-																{':'}
-															</span>
-															<span className="sides">
-																{'}'}
-															</span>
-														</div>
+														<a href="http://otaviosanchez.tech">
+															<div className="logoImage">
+																<span className="sides">
+																	{'{'}
+																</span>
+																<span className={`middle ${open ? 'menu-active' : ''}`}>
+																	{':'}
+																</span>
+																<span className="sides">
+																	{'}'}
+																</span>
+															</div>
+														</a>
 													</Col>
 													<Col>
-														<h1 className="logo">{title}</h1>
-														<h2 className="logo__sub">
-															{subTitle}
-															{' '}
-														</h2>
+														<a href="http://otaviosanchez.tech">
+															<h1 className="logo">{title}</h1>
+															<h2 className={`logo__sub ${open ? 'menu-active' : ''}`}>
+																{subTitle}
+																{' '}
+															</h2>
+														</a>
 													</Col>
+
 												</Row>
 											</Grid>
 										</Col>
